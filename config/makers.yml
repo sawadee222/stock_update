@@ -1,0 +1,90 @@
+---
+4t:
+  source: web
+  format: CSV
+  filekey: 4t_stock.csv
+  web_linking: false
+  absent_data_stock_zero: true
+  latest_file_date: 2024/04/11 11:11:53
+  header_code: 商品ｺｰﾄﾞ
+  header_sku_code: ''
+  header_stock: ''
+  header_delivery_date: ''
+  header_delivery_num: ''
+  header_leadtime_num: ''
+  header_option_key: ''
+  header_option_value: ''
+  header_option_h_id: ''
+  header_option_h: ''
+  header_option_v_id: ''
+  header_option_v: ''
+  header_param_1: ''
+  header_param_2: ''
+  header_param_3: ''
+fj:
+  source: mail
+  format: CSV
+  filekey: XX産業在庫表
+  web_linking: false
+  absent_data_stock_zero: false
+  latest_file_date: 2024/04/11 11:11:53
+  header_code: 商品ｺｰﾄﾞ
+  header_sku_code: ''
+  header_stock: 有効数
+  header_delivery_date: ''
+  header_delivery_num: 出荷所要日数
+  header_leadtime_num: ''
+  header_option_key: ''
+  header_option_value: ''
+  header_option_h_id: ''
+  header_option_h: ''
+  header_option_v_id: ''
+  header_option_v: ''
+  header_param_1: ''
+  header_param_2: ''
+  header_param_3: ''
+hg:
+  source: mail
+  format: Excel
+  filekey: 欠品完売リスト
+  web_linking: true
+  absent_data_stock_zero: false
+  latest_file_date: 2025/01/20 19:19:48
+  header_code: JAN
+  header_sku_code: ''
+  header_stock: 在庫状況
+  header_delivery_date: 入荷予定日
+  header_delivery_num: ''
+  header_leadtime_num: ''
+  header_option_key: ''
+  header_option_value: ''
+  header_option_h_id: ''
+  header_option_h: ''
+  header_option_v_id: ''
+  header_option_v: ''
+  header_param_1: ''
+  header_param_2: ''
+  header_param_3: ''
+nd:
+  source: mail
+  format: Excel
+  filekey: 在庫
+  web_linking: true
+  absent_data_stock_zero: true
+  latest_file_date: 2025/02/17 16:14:32
+  zip_pw: password
+  header_code: XX品番
+  header_sku_code: 個別品番
+  header_stock: 在庫数
+  header_delivery_date: 次回入荷予定
+  header_delivery_num: ''
+  header_leadtime_num: ''
+  header_option_key: ''
+  header_option_value: 選択肢
+  header_option_h_id: ''
+  header_option_h: 選択肢
+  header_option_v_id: ''
+  header_option_v: ''
+  header_param_1: ''
+  header_param_2: ''
+  header_param_3: ''

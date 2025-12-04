@@ -1,0 +1,3 @@
+class SetStockException < BaseException
+
+end

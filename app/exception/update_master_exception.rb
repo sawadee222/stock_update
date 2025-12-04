@@ -1,0 +1,3 @@
+class UpdateMasterException < BaseException
+
+end

@@ -1,0 +1,107 @@
+<div id="menu" name="menu">
+    <%= simple_form_for '', url: {:action => "execute"}, remote: true, data: {turbo: false}, :html => {:class => 'form-horizontal' } do |f| %>
+    <h4>登録するファイルを設定</h4>
+    <%= f.input :file, as: :file %>
+    <br>
+    <%= link_to 'フォーマットダウンロード', '/sample.csv', download: 'sample.csv' %>
+    <br>
+    <%= f.input :options, as: :boolean, label: '選択肢も更新する' %>
+    <%= f.input :sspage, as: :boolean, label: 'ssサーチ品番(-ss1202)も更新する' %>
+    <%= f.input :sale, as: :boolean, label: 'セール品番(-sale)も更新する' %>
+    <br>
+    <%= f.button :submit, '実行', :class => 'btn btn-primary' %>
+    <% end %>
+
+    <div id="result" style="display:none;"></div>
+    <div id="loader" style="display:none;">
+        <img src="<%= asset_path('ajax-loader.gif') %>">
+    </div>
+    <div id="caution">
+        <table>
+            <tr>
+                <th colspan="2">※注意事項※</th>
+            </tr>
+            <tr>
+                <td>(※1)</td>
+                <td>
+                    商品データは毎週水曜日に更新しているため、<br>
+                    <b>『直近で新規アップした商品データ』</b>は反映されません<br>
+                </td>
+            </tr>
+            <tr>
+                <td>(※2)</td>
+                <td>
+                    商品データの更新中は選択肢の更新ができません。<br>
+                </td>
+            </tr>
+            <tr>
+                <td>(※3)</td>
+                <td>選択肢を更新する場合<b>『更新後の選択肢の状態』</b>をアップロードして下さい<br>
+                    (ex. 商品番号"aa-001"の選択肢：赤、青、黄から青を削除する場合、<br>
+                    アップロードファイルには選択肢：赤、黄を記入する。
+                </td>
+            </tr>
+        </table>
+        <br>
+        (※4) 各モール以下に注意して下さい。<br>
+        &nbsp;
+        <table id="caution2" border="1" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tbody>
+                <tr>
+                    <th width="100">モール</th>
+                    <th>注意事項</th>
+                </tr>
+                <tr>
+                    <td>【共通】</td>
+                    <td>非公開のページは更新対象外です</td>
+                </tr>
+                <tr>
+                    <td>楽天</td>
+                    <td>ssサーチ、-saleのURL品番は更新対象外です</td>
+                </tr>
+                <tr>
+                    <td>Yahoo</td>
+                    <td>URL品番と商品番号が異なる場合、URL品番を更新データに追加して下さい</td>
+                </tr>
+                <tr>
+                    <td>Amazon</td>
+                    <td>
+                        ・SKU品番を更新データに追加して下さい<br>
+                        ・送料更新ファイルは手動アップロードして下さい<br>
+                        　①[ログイン]->[在庫-アップロードによる一括商品登録]→[在庫ファイルのアップロード]に移動<br>
+                        　②「ファイルの種類：配送料上書きファイル」を選択してアップロード<br>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>Qoo10</td>
+                    <td>
+                        更新ファイルを手動アップロードして下さい<br>
+                        　①[ログイン]->[商品管理]->[価格/在庫]に移動<br>
+                        　②「EXCELアップロード」からアップロード（CSV形式でアップロード可能）
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>EcCube</td>
+                    <td>更新ファイルを管理画面から手動アップロードして下さい</td>
+                </tr>
+                <tr>
+                    <td>Yaichi</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>dショッピング</td>
+                    <td>SKU品番を更新データに追加して下さい<br></td>
+                </tr>
+                <tr>
+                    <td>Shopify</td>
+                    <td>バリエーションは全てラジボ扱いなので、他モールではプルダウンの選択肢でも「横軸選択肢」に値を入れてください<br>
+                        FTPツールに「shopify/01.rcmd」フォルダを作成して、ファイル名を「price.csv」にして置くとアップロードされます
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

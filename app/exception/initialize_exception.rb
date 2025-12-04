@@ -1,0 +1,3 @@
+class InitializeException < BaseException
+
+end

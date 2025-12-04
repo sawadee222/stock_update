@@ -1,0 +1,3 @@
+class OutputStockException < BaseException
+
+end

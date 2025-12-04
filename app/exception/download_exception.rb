@@ -1,0 +1,3 @@
+class DownloadException < BaseException
+
+end

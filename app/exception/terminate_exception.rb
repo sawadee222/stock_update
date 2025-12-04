@@ -1,0 +1,2 @@
+class TerminateException < BaseException
+end

@@ -1,0 +1,61 @@
+default: &default
+  internal:
+    host: '192.168.1.229/internal'
+  mail:
+    s_system:
+      header:
+        from: 'stock_update@example.com'
+        to_1: 'sys-item@example.com'
+      option:
+        :address: 'smtp.example.com'
+        :port: '587'
+        :domain: 'example.com'
+        :authentication: 'login'
+        :user_name: 'stock_update@example.com'
+        :password: 'F0K6Pcei'
+        :enable_starttls_auto: false
+  aws:
+    s3_bucket_name: 'gpms-internal'
+    
+development:
+  <<: *default
+  internal:
+    host: '192.168.1.229/internal' #リリース時修正
+  mail:
+    s_system:
+      header:
+        from: 'stock_update@example.com'
+        to_1: 'your_address@example.com'
+      option:
+        :address: 'smtp.example.com'
+        :port: '587'
+        :domain: 'example.com'
+        :authentication: 'login'
+        :user_name: 'stock_update@example.com'
+        :password: 'password'
+        :enable_starttls_auto: false
+  aws:
+    s3_bucket_name: '' #リリース時修正
+
+test:
+  <<: *default
+  internal:
+    host: '192.168.1.231/internal'
+  mail:
+    s_system:
+      header:
+        from: 'stock_update@example.com'
+        to_1: 'your_address@example.com'
+      option:
+        :address: 'smtp.example.com'
+        :port: '587'
+        :domain: 'example.com'
+        :authentication: 'login'
+        :user_name: 'stock_update@example.com'
+        :password: 'F0K6Pcei'
+        :enable_starttls_auto: false
+  aws:
+    s3_bucket_name: 'gpms-internal-dev'
+
+production:
+  <<: *default

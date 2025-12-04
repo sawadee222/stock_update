@@ -1,0 +1,36 @@
+
+<% if @alert.present? %>
+    alert("<%= j @alert %>");
+<% end %>
+
+let resultElement = document.getElementById("result")
+
+resultElement.innerHTML = '';
+resultElement.innerHTML += "<h4>▼結果▼</h4>"
+
+<% if @filepath %>
+resultElement.innerHTML += '<input type="button" value="在庫更新ファイルダウンロード" onclick="window.open(\'<%= @filepath %>\')" />';
+resultElement.innerHTML += '<br>';
+<% else %>
+resultElement.innerHTML += '<p>ダウンロードデータなし</p>';
+<% end %>
+
+<% if @result || @message || @data %>
+const table = document.createElement("table");
+const tbody = document.createElement("tbody");
+tbody.innerHTML += '<tr><th colspan="2">処理結果</th></tr>';
+<% end %>
+<% if @result %>
+    tbody.innerHTML += '<tr><td colspan="2"><%= j @result %></td></tr>';
+<% end %>
+<% if @message %>
+    tbody.innerHTML += '<tr><td colspan="2"><%= j @message %></td></tr>';
+<% end %>
+<% if @data %>
+    <% @data.each do |item| %>
+        tbody.innerHTML += '<tr><td><%= j item[0] %></td><td><%= j item[1] %></td></tr>'
+    <% end %>
+<% end %>
+table.appendChild(tbody)
+resultElement.appendChild(table)
+

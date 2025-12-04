@@ -1,0 +1,3 @@
+class OldFileException < BaseException
+
+end

@@ -1,0 +1,3 @@
+class UploadException < BaseException
+
+end
